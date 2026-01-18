@@ -1,5 +1,6 @@
 <?php
 session_start();
+// test
 
 require __DIR__ . "/includes/db.php"; 
 
