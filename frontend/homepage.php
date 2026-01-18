@@ -1,60 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Morningstar Primary School</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morningstar Primary School</title>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (Social Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
-<header class="header">
-    <div class="logo">
-        <img src="logo.png" alt="Logo">
-    </div>
+  <!-- ===== HEADER ===== -->
+   <!-- test -->
+ <header class="site-header">
+  <div class="header-grid">
+    <!-- 1) Logo -->
+    <a class="brand" href="#">
+      <img src="logo.png" alt="Morningstar Logo" class="brand-logo">
+    </a>
 
-    <nav class="nav">
-        <a href="#">Home</a>
-        <a href="#">News</a>
-        <a href="#">About Us</a>
-        <a href="#">Login</a>
-    </nav>
+    <!-- 2) Home -->
+    <a class="nav-link" href="#">Home</a>
+
+    <!-- 3) News -->
+    <a class="nav-link" href="#">News</a>
+
+    <!-- 4) About Us -->
+    <a class="nav-link" href="#">About Us</a>
+
+    <!-- 5) Login -->
+    <a class="nav-link" href="loginpage.php">Login</a>
+  </div>
 </header>
 
-<!-- ===== HERO SECTION ===== -->
-<section class="hero">
-    <div class="hero-text">
-        <h1>Shaping young minds today for a brighter tomorrow.</h1>
-        <p>
-            Explore, learn, and grow with us at<br>
-            <span class="school-name">The Morningstar Primary School</span>
+  <!-- ===== HERO / BODY ===== -->
+  <main class="hero">
+    <div class="container hero-inner">
+      
+      <!-- Left -->
+      <section class="hero-left">
+        <h1 class="hero-title">Welcome on our site</h1>
+        <p class="hero-subtitle">The morning star primary school</p>
+
+        <a class="pill-btn" href="#">Learn More</a>
+      </section>
+
+      <!-- Right -->
+      <section class="hero-right">
+        <p class="hero-lead">
+          Shaping young minds today for a brighter tomorrow. Explore, learn, and grow with us at The Morningstar Primary School
         </p>
 
-        <div class="hero-buttons">
-            <a href="#" class="btn">Contact Us</a>
-            <a href="#" class="btn">Learn More</a>
-        </div>
+        <a class="pill-btn" href="#">Contact Us</a>
+      </section>
+
     </div>
-</section>
+  </main>
 
-<!-- ===== SECOND TITLE ===== -->
-<section class="title-section">
-    <h2>Primary School</h2>
-    <a href="#" class="learn-more">Learn More</a>
-</section>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <h2 class="footer-title">Contact with us</h2>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-    <h3>Connect With Us</h3>
-
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+      <div class="social">
+        <a class="social-link" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="social-link" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="social-link" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="social-link" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
     </div>
-</footer>
+  </footer>
 
 </body>
 </html>
