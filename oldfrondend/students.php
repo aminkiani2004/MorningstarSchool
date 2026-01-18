@@ -1,38 +1,25 @@
 <?php
-require __DIR__ . "/includes/db.php";
+// ===== Demo data (بعداً از دیتابیس میاد) =====
+$students = [
+  ["name"=>"Ella Parker",   "id"=>"98738", "class"=>"A1", "parent"=>"John Parker",   "phone"=>"0612345678", "avatar"=>""],
+  ["name"=>"Ethan Davis",   "id"=>"45683", "class"=>"A2", "parent"=>"Mia Davis",     "phone"=>"0612345678", "avatar"=>""],
+  ["name"=>"Noah Peterson", "id"=>"56765", "class"=>"A2", "parent"=>"Liam Peterson", "phone"=>"0612345678", "avatar"=>""],
+  ["name"=>"Ava Mitchell",  "id"=>"85833", "class"=>"A1", "parent"=>"Emma Mitchell", "phone"=>"0612345678", "avatar"=>""],
+  ["name"=>"Liam Carter",   "id"=>"45842", "class"=>"A1", "parent"=>"Noah Carter",   "phone"=>"0612345678", "avatar"=>""],
+  ["name"=>"Emma Collins",  "id"=>"23947", "class"=>"A3", "parent"=>"Olivia Collins","phone"=>"0612345678", "avatar"=>""],
+  ["name"=>"Lucas Warren",  "id"=>"34567", "class"=>"A2", "parent"=>"Sophia Warren", "phone"=>"0612345678", "avatar"=>""],
+];
 
-$q = trim($_GET['q'] ?? '');
-
-if ($q !== '') {
-  $stmt = $pdo->prepare("
-    SELECT 
-      Student_ID   AS id,
-      CONCAT(First_Name, ' ', Last_Name) AS name,
-      Class        AS class,
-      Parent_Name  AS parent,
-      Parent_Phone AS phone
-    FROM student
-    WHERE
-      CONCAT(First_Name, ' ', Last_Name) LIKE ?
-      OR Student_ID LIKE ?
-    ORDER BY Student_ID ASC
-  ");
-  $like = "%$q%";
-  $stmt->execute([$like, $like]);
-  $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} else {
-  $students = $pdo->query("
-    SELECT 
-      Student_ID   AS id,
-      CONCAT(First_Name, ' ', Last_Name) AS name,
-      Class        AS class,
-      Parent_Name  AS parent,
-      Parent_Phone AS phone
-    FROM student
-    ORDER BY Student_ID ASC
-  ")->fetchAll(PDO::FETCH_ASSOC);
+// ===== Search (name or id) ===== 
+$q = isset($_GET['q']) ? trim($_GET['q']) : "";
+if ($q !== "") {
+  $students = array_values(array_filter($students, function($s) use ($q){
+    $hay = strtolower($s["name"]." ".$s["id"]);
+    return str_contains($hay, strtolower($q));
+  }));
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
